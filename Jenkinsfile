@@ -15,7 +15,7 @@ agent any
    steps{
         
         echo 'Hello, Maven'
-        sh 'mvn -Dmaven.test.failure.ignore clean package'
+        sh 'mvn clean install'
            
     }
    }
