@@ -14,7 +14,7 @@ agent any
   stage('Build & Unit test'){
    steps{
         
-        sh 'mvn -Dmaven.test.failure.ignore=true install'
+        echo 'Hello, Maven'
            
     }
    }
