@@ -13,7 +13,8 @@ agent any
    }
   stage('Build & Unit test'){
    steps{
-        sh 'mvn clean verify -DskipITs=true';
+        
+        sh 'mvn -Dmaven.test.failure.ignore=true install'
            
     }
    }
