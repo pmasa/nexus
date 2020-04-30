@@ -25,8 +25,7 @@ agent any
     }
    stage ('Integration Test'){
     steps{
-        sh 'mvn clean verify -Dsurefire.skip=true'; 
-        junit '**/target/failsafe-reports/TEST-*.xml'
+        echo 'Hello, SonarQube'
      }
    }
 
