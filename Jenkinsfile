@@ -1,6 +1,6 @@
 pipeline {
  environment {
- registry = "pedromasa/webapp"
+ registry = "pedromasa/ci"
  registryCredential = 'dockerhub'
  dockerImage = ''
  } 
