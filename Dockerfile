@@ -4,4 +4,4 @@ COPY ./target/*.jar /tmp
 
 WORKDIR /tmp
 
-ENTRYPOINT ["java","-jar","helloworld.jar"]
+ENTRYPOINT ["java","-jar","helloworld-app.jar"]
