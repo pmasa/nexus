@@ -14,7 +14,6 @@ agent any
   stage('Build & Unit test'){
    steps{
         
-        echo 'Hello, Maven'
         sh 'mvn clean package'
            
     }
