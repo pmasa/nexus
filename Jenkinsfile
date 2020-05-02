@@ -15,7 +15,6 @@ agent any
    steps{
         
         sh 'mvn clean package'
-           
     }
    }
    stage('Static Code Analysis'){
