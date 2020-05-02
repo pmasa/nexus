@@ -26,7 +26,6 @@ agent any
     }
    stage ('Integration Test'){
     steps{
-        echo 'Hello, SonarQube'
         sh 'mvn clean verify -Dsurefire.skip=true';
      }
    }
