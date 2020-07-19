@@ -13,7 +13,7 @@ agent any
    }
   stage('Build & Unit test'){
    steps{
-        sh "'/bin/mvn' -Dmaven.test.failure.ignore clean package"
+        sh "mvn package"
        
     }
    }
