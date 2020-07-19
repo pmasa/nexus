@@ -18,8 +18,10 @@ agent any
     }
    }
   stage('Results') {
+   steps{
     junit '**/target/surefire-reports/TEST-*.xml'
     archive 'target/*.jar' 
+    }
    }
   
    stage ('Integration Test'){
