@@ -13,10 +13,15 @@ agent any
    }
   stage('Build & Unit test'){
    steps{
-        
-        sh 'mvn clean package'
+        sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+       
     }
    }
+  stage('Results') {
+    junit '**/target/surefire-reports/TEST-*.xml'
+    archive 'target/*.jar' 
+   }
+  
    stage ('Integration Test'){
     steps{
         sh 'mvn clean verify -Dsurefire.skip=true';
