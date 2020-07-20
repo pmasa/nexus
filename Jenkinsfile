@@ -23,17 +23,25 @@ agent any
     archive 'target/*.jar' 
     }
    }
-  stage('Static Code Analysis'){
-    steps{
-        sh 'mvn verify sonar:sonar -Dsonar.projectName=ci-project -Dsonar.projectKey=ci-project -Dsonar.projectVersion=$BUILD_NUMBER -Dsonar.host.url=http://192.168.0.114:9000';
-     }
-   }
+
    stage ('Integration Test'){
     steps{
         sh 'mvn clean verify -Dsurefire.skip=true';
      }
    }
-  
+  stage ('Publish'){
+    def server = Artifactory.server 'Default Artifactory Server' 
+    def uploadSpec = """{
+      "files": [ 
+        {
+            "pattern": "target/hello-0.0.1.war",
+            "target": "example-project/${BUILD_NUMBER}/",
+            "props": "Integration-Tested=Yes;Performance-Tested=No"
+       } 
+      ]
+     }"""
+    server.upload(uploadSpec) 
+   }
   stage('Building Docker Image') {
    steps{
      script {
