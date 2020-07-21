@@ -26,6 +26,7 @@ agent any
      }
    }
   stage ('Publish'){
+   steps{
     def server = Artifactory.server 'Default Artifactory Server' 
     def uploadSpec = """{
       "files": [ 
@@ -37,6 +38,7 @@ agent any
       ]
      }"""
     server.upload(uploadSpec) 
+    }
    }
   stage('Building Docker Image') {
    steps{
