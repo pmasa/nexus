@@ -28,7 +28,7 @@ agent any
   stage ('Publish'){  
    steps{
     script {
-       def server = Artifactory.newServer url: 'localhost:8080', username: 'admin', password: 'password'
+       def server = Artifactory.newServer url: 'localhost:8080/artifactory', username: 'admin', password: 'password'
        def uploadSpec = """{
        "files": [ 
         {
