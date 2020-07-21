@@ -17,16 +17,12 @@ agent any
        
     }
    }
-  stage('Results') {
-   steps{
-    junit '**/target/surefire-reports/TEST-*.xml'
-    archive 'target/*.jar' 
-    }
-   }
 
    stage ('Integration Test'){
     steps{
         sh 'mvn clean verify -Dsurefire.skip=true';
+        junit '**/target/surefire-reports/TEST-*.xml'
+        archive 'target/*.jar' 
      }
    }
   stage ('Publish'){
