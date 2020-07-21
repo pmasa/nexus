@@ -28,12 +28,12 @@ agent any
   stage ('Publish'){  
    steps{
     script {
-       def server = Artifactory.newServer url: 'http://localhost:8080/artifactory/simple/', username: 'admin', password: 'password'
+       def server = Artifactory.newServer url: 'http://localhost:8080/artifactory/', username: 'admin', password: 'password'
        def uploadSpec = """{
        "files": [ 
         {
             "pattern": "target/helloworld-app.jar",
-            "target": "example-project/${BUILD_NUMBER}/",
+            "target": "example-project/${BUILD_NUMBER}",
             "props": "Integration-Tested=Yes;Performance-Tested=No"
        } 
       ]
