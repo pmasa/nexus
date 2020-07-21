@@ -25,8 +25,7 @@ agent any
         archive 'target/*.jar' 
      }
    }
-  stage ('Publish'){
-   steps{   
+  stage ('Publish'){  
     script {
        def server = Artifactory.server url: 'localhost:8080', username: 'admin', password: 'password'
        def uploadSpec = """{
@@ -39,7 +38,6 @@ agent any
       ]
      }"""
     server.upload(uploadSpec) 
-    }
     }
    }
   stage('Building Docker Image') {
