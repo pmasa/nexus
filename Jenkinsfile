@@ -27,9 +27,8 @@ agent any
    }
   stage ('Publish'){
    steps{   
-    step{
-    def server = Artifactory.newServer url: 'localhost:8080', username: 'admin', password: 'password'
-    def uploadSpec = """{
+      def server = Artifactory.newServer url: 'localhost:8080', username: 'admin', password: 'password'
+      def uploadSpec = """{
       "files": [ 
         {
             "pattern": "target/hello-0.0.1.war",
@@ -37,7 +36,7 @@ agent any
             "props": "Integration-Tested=Yes;Performance-Tested=No"
        } 
       ]
-     }"""}
+     }"""
     server.upload(uploadSpec) 
     }
    }
