@@ -33,7 +33,7 @@ agent any
        "files": [ 
         {
             "pattern": "target/helloworld-app.jar",
-            "target": "example-project/${BUILD_NUMBER}/${BUILD_NUMBER}.zip",
+            "target": "example-project-1/${BUILD_NUMBER}/",
             "props": "Integration-Tested=Yes;Performance-Tested=No"
        } 
       ]
