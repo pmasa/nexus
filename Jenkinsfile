@@ -25,7 +25,7 @@ agent any
         archive 'target/*.jar' 
      }
    }
-  stage ('Publish'){  
+  stage ('Publish to Artifactory'){  
    steps{
     script {
        def server = Artifactory.newServer url: 'http://172.20.0.2:8080/artifactory/', username: 'admin', password: 'password'
@@ -33,7 +33,7 @@ agent any
        "files": [ 
         {
             "pattern": "target/helloworld-app.jar",
-            "target": "example-project/${BUILD_NUMBER}",
+            "target": "example-project/${BUILD_NUMBER}/",
             "props": "Integration-Tested=Yes;Performance-Tested=No"
        } 
       ]
