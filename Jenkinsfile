@@ -33,7 +33,7 @@ agent any
        "files": [ 
         {
             "pattern": "target/helloworld-app.jar",
-            "target": "ext-release-local/${BUILD_NUMBER}/",
+            "target": "jcenter/${BUILD_NUMBER}/",
             "props": "Integration-Tested=Yes;Performance-Tested=No"
        } 
       ]
